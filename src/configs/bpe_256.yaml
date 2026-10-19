@@ -1,0 +1,10 @@
+defaults:
+  - bpe
+  - _self_
+
+text_encoder:
+  model_path: data/tokenizers/bpe_train-clean-100_256.model
+
+writer:
+  run_name: "BPE test: BPE 256"
+  save_name: bpe_256

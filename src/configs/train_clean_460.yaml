@@ -1,0 +1,11 @@
+defaults:
+  - bpe
+  - override datasets: clean_460
+  - _self_
+
+writer:
+  run_name: "Conformer BPE128: clean 460 stage 1"
+  save_name: clean_460_bpe128
+
+trainer:
+  n_epochs: 10

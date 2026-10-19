@@ -1,0 +1,11 @@
+defaults:
+  - augmentation_with
+  - _self_
+
+writer:
+  run_name: "augmentation test: no augmentations"
+  save_name: augmentation_without
+
+transforms:
+  instance_transforms:
+    train: ${transforms.instance_transforms.inference}

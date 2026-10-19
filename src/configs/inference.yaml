@@ -1,0 +1,25 @@
+defaults:
+  - _self_
+
+batch_size: 4
+num_workers: 4
+lm_path: data/lm/3-gram.lower.arpa
+beam_size: 20
+alpha: 0.8
+beta: 1.0
+
+datasets:
+  test:
+    _target_: src.datasets.CustomDirDataset
+    data_dir: data/custom
+
+inferencer:
+  device_tensors: [spectrogram]
+  seed: 42
+  from_pretrained: saved/full_960_bpe128/model_best.pth
+  save_path: data/predictions
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null

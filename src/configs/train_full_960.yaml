@@ -1,0 +1,15 @@
+defaults:
+  - bpe
+  - override datasets: full_960
+  - _self_
+
+optimizer:
+  lr: 0.0001
+
+writer:
+  run_name: "Conformer BPE128: full 960 stage 2"
+  save_name: full_960_bpe128
+
+trainer:
+  n_epochs: 10
+  from_pretrained: saved/clean_460_bpe128/model_best_weights.pth

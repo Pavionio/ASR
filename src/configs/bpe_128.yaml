@@ -1,0 +1,3 @@
+defaults:
+  - bpe
+  - _self_

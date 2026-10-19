@@ -1,0 +1,12 @@
+defaults:
+  - writer: cometml
+  - _self_
+
+checkpoint: saved/full_960_bpe128/model_best.pth
+parts: [dev-clean, dev-other]
+beam_sizes: [5, 7, 10]
+batch_size: 4
+num_workers: 4
+limit: null
+writer:
+  run_name: "Decoding: greedy vs beam 5 7 10"

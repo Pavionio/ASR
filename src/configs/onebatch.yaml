@@ -1,0 +1,30 @@
+defaults:
+  - baseline
+  - override model: conformer
+  - override datasets: onebatchtest
+  - _self_
+
+dataloader:
+  batch_size: 2
+  num_workers: 0
+
+transforms:
+  instance_transforms:
+    train: ${transforms.instance_transforms.inference}
+
+optimizer:
+  lr: 0.0003
+
+lr_scheduler:
+  max_lr: 0.0003
+
+writer:
+  run_name: "one batch test"
+
+trainer:
+  n_epochs: 20
+  epoch_len: 50
+  log_step: 10
+  save_period: 5
+  early_stop: 20
+  max_grad_norm: 5.0

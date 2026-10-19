@@ -1,0 +1,10 @@
+defaults:
+  - augmentation_with
+  - _self_
+
+trainer:
+  n_epochs: 10
+
+writer:
+  run_name: "BPE test: characters"
+  save_name: bpe_characters

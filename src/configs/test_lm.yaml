@@ -1,0 +1,12 @@
+defaults:
+  - compare_lm
+  - _self_
+
+parts: [test-clean, test-other]
+beam_size: 20
+alphas: [0.8]
+betas: [1.0]
+include_no_lm: false
+
+writer:
+  run_name: "Final test: LM beam 20 alpha 0.8 beta 1.0"

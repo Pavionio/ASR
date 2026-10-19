@@ -1,0 +1,38 @@
+train:
+  get_spectrogram: &log_mel
+    _target_: torch.nn.Sequential
+    _args_:
+      - _target_: torchaudio.transforms.MelSpectrogram
+        sample_rate: 16000
+        n_fft: 512
+        win_length: 400
+        hop_length: 160
+        n_mels: 80
+        power: 2.0
+      - _target_: torchaudio.transforms.AmplitudeToDB
+        stype: power
+        top_db: 80
+      - _target_: src.transforms.normalization.TemporalNormalize
+  audio: # name of the tensor on which we apply transform
+    _target_: torch.nn.Sequential
+    _args_:
+      - _target_: src.transforms.wav_augs.Gain
+        min_gain_in_db: -6.0
+        max_gain_in_db: 6.0
+        p: 0.5
+      - _target_: src.transforms.wav_augs.AddNoise
+        min_snr_in_db: 15.0
+        max_snr_in_db: 30.0
+        min_f_decay: 0.0
+        max_f_decay: 0.0
+        p: 0.5
+  spectrogram:
+    _target_: torch.nn.Sequential
+    _args_:
+      - _target_: torchaudio.transforms.FrequencyMasking
+        freq_mask_param: 16
+      - _target_: torchaudio.transforms.TimeMasking
+        time_mask_param: 20
+        p: 0.05
+inference:
+  get_spectrogram: *log_mel

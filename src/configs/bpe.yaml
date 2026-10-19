@@ -1,0 +1,14 @@
+defaults:
+  - augmentation_with
+  - _self_
+
+trainer:
+  n_epochs: 10
+
+text_encoder:
+  _target_: src.text_encoder.BPETextEncoder
+  model_path: data/tokenizers/bpe_train-clean-100_128.model
+
+writer:
+  run_name: "BPE test: BPE 128"
+  save_name: bpe_128

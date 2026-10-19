@@ -1,0 +1,12 @@
+defaults:
+  - compare_decoders
+  - _self_
+
+lm_path: data/lm/3-gram.lower.arpa
+beam_size: 20
+alphas: [0.2, 0.5, 0.8]
+betas: [0.0, 1.0]
+include_no_lm: true
+
+writer:
+  run_name: "LM fusion: no LM vs 3-gram alpha beta"

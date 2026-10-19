@@ -1,0 +1,7 @@
+_target_: src.model.ConformerCTC
+n_feats: 80
+d_model: 256
+num_heads: 4
+num_layers: 8
+kernel_size: 31
+dropout: 0.1
